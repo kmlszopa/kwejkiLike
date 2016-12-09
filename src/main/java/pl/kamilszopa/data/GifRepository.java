@@ -43,6 +43,15 @@ public class GifRepository {
         }
         return favs;
     }
+    public List<Gif> findByChars(String name) {
+        List<Gif> finded = new ArrayList<>();
+        for (Gif gif : ALL_GIFS) {
+            if (gif.getName().contains(name)) {
+                finded.add(gif);
+            }
+        }
+        return finded;
+    }
 
 
     public List<Gif> getAllGifs() {
@@ -56,6 +65,6 @@ public class GifRepository {
                 favs.add(gif);
             }
         }
-        return ALL_GIFS;
+        return favs;
     }
 }
