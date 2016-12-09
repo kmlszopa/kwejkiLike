@@ -20,6 +20,9 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version:
             '1.4.1.RELEASE'
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: '5.2.5.Final'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.4'
+
 
 }
 task stage(type: Copy, dependsOn: [clean, build]) {
