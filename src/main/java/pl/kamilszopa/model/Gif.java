@@ -31,10 +31,11 @@ public class Gif {
         this.category = category;
     }
 
-    public Gif(String name, String username, boolean isFavorite) {
+    public Gif(String name, String username, boolean isFavorite, Category category) {
         this.name = name;
         this.username = username;
         this.isFavorite = isFavorite;
+        this.category = category;
     }
 
     public int getId() {
