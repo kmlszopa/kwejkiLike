@@ -3,13 +3,10 @@ package pl.kamilszopa.data;
 import org.springframework.stereotype.Component;
 import pl.kamilszopa.model.Category;
 import pl.kamilszopa.model.Gif;
-import sun.net.www.content.image.gif;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static javafx.scene.input.KeyCode.L;
 
 /**
  * Created by kmlsz on 09.12.2016.
