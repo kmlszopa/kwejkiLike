@@ -15,7 +15,6 @@ import static javafx.scene.input.KeyCode.L;
  * Created by kmlsz on 09.12.2016.
  */
 @Component
-@Exte
 public class GifRepository {
     private static final List<Gif> ALL_GIFS = Arrays.asList(
             new Gif("android-explosion", "Chris Ramacciotti", false,new Category(3,"memy")),
