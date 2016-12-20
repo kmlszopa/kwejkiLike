@@ -2,11 +2,9 @@ package pl.kamilszopa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.kamilszopa.data.GifRepository;
 import pl.kamilszopa.model.Gif;
 
@@ -43,14 +41,20 @@ public class GifController {
 
     @GetMapping("/favorites")
     public String gifFavorites(ModelMap modelMap) {
-     List<Gif> favoritesGifs = gifRepository.findByFavorites();
-        modelMap.addAttribute("gifs",favoritesGifs);
+        List<Gif> favoritesGifs = gifRepository.findByFavorites();
+        modelMap.addAttribute("gifs", favoritesGifs);
         return "results";
     }
+
     @GetMapping("search")
-    public String search(@RequestParam(value = "q")  String name,ModelMap modelMap){
+    public String search(@RequestParam(value = "q") String name, ModelMap modelMap) {
         List<Gif> searchedGifs = gifRepository.findByChars(name);
-        modelMap.addAttribute("gifs",searchedGifs);
+        modelMap.addAttribute("gifs", searchedGifs);
         return "results";
+    }
+
+    @GetMapping("addGif")
+    public String addGif(ModelMap modelMap){
+        return "addForm";
     }
 }

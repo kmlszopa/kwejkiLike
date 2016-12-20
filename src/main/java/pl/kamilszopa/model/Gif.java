@@ -3,6 +3,7 @@ package pl.kamilszopa.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 /**
  * Created by kmlsz on 09.12.2016.
@@ -20,7 +21,10 @@ public class Gif {
 
     private boolean isFavorite;
 
+    @Transient
     private Category category;
+
+    public Gif(){}
 
     public String getUsername() {
         return username;
