@@ -5,9 +5,13 @@ import org.springframework.web.multipart.MultipartFile;
 import pl.kamilszopa.model.Category;
 import pl.kamilszopa.model.Gif;
 
+import java.util.List;
+
 /**
  * Created by kmlsz on 09.12.2016.
  */
-public interface CategoryDao extends CrudRepository<Category, Integer> {
+public interface CategoryDao {
+
+    public List<Category> getAllCategories();
 
 }

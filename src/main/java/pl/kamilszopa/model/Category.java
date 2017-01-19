@@ -1,18 +1,17 @@
 package pl.kamilszopa.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by kmlsz on 09.12.2016.
  */
 @Entity
+@Table
 public class Category {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;

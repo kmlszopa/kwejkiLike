@@ -1,18 +1,16 @@
 package pl.kamilszopa.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 /**
  * Created by kmlsz on 09.12.2016.
  */
 @Entity
+@Table
 public class Gif {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
