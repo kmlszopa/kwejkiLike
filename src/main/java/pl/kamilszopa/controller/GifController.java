@@ -46,7 +46,7 @@ public class GifController {
         return "results";
     }
 
-    @GetMapping("search")
+    @GetMapping("/search")
     public String search(@RequestParam(value = "q") String name, ModelMap modelMap) {
         List<Gif> searchedGifs = gifRepository.findByChars(name);
         modelMap.addAttribute("gifs", searchedGifs);
@@ -54,7 +54,12 @@ public class GifController {
     }
 
     @GetMapping("addGif")
-    public String addGif(ModelMap modelMap){
+    public String addGif(){
         return "addForm";
     }
+
+//    @PostMapping("addedgif")
+//    public String added(@RequestParam(value = "")){
+//
+//    }
 }

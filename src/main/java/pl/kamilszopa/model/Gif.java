@@ -13,16 +13,32 @@ public class Gif {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private byte[] image;
+
     private String name;
 
     private String username;
 
     private boolean isFavorite;
 
-    @Transient
-    private Category category;
+    private int categoryId;
 
     public Gif(){}
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public Gif(byte[] image, String name, String username, boolean isFavorite, int categoryId) {
+        this.image = image;
+        this.name = name;
+        this.username = username;
+        this.categoryId = categoryId;
+    }
 
     public String getUsername() {
         return username;
@@ -32,19 +48,12 @@ public class Gif {
         this.username = username;
     }
 
-    public Category getCategory() {
-        return category;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Gif(String name, String username, boolean isFavorite, Category category) {
-        this.name = name;
-        this.username = username;
-        this.isFavorite = isFavorite;
-        this.category = category;
+    public int getCategoryId() {
+        return categoryId;
     }
 
     public int getId() {

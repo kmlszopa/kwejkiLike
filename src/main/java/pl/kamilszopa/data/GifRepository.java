@@ -46,11 +46,11 @@ public class GifRepository implements GifDao {
 
     }
     @Override
-    public List<Gif> findByChars(String name) {
+    public List<Gif> findByChars(String chars) {
         List<Gif> gifList = entityManager.createQuery("from Gif").getResultList();
         List<Gif> finded = new ArrayList<>();
         for (Gif gif : gifList) {
-            if (gif.getName().contains(name)) {
+            if (gif.getName().contains(chars)) {
                 finded.add(gif);
             }
         }
@@ -85,9 +85,9 @@ public class GifRepository implements GifDao {
     }
 
     @Override
-    public List<Gif> findByCategoryId(int id) {
+    public List<Gif> findByCategoryId(int category_id) {
 
-        return entityManager.createQuery("from Gif where id in(" +id+")").getResultList();
+        return entityManager.createQuery("from Gif where category_id in(" +category_id+")").getResultList();
     }
 
 

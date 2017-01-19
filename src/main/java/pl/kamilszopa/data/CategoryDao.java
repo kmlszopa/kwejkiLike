@@ -13,5 +13,6 @@ import java.util.List;
 public interface CategoryDao {
 
     public List<Category> getAllCategories();
+    public Category findById(int id);
 
 }

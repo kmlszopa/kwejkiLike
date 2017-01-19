@@ -1,45 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout :: head('upload')"></head>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" th:href="@{/favicon.png}"/>
+
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" th:href="@{/app.css}"/>
+    <title>Add Gif</title>
+</head>
 <body>
 <div th:replace="layout :: nav-bar"></div>
 <div th:replace="layout :: flash"></div>
-<div class="container upload">
-    <div class="row">
-        <div class="col s12">
-            <h2 th:text="${heading}">Upload</h2>
-            <div class="subtitle">Upload and share your GIFs with friends and family on Facebook, Twitter, and everywhere else.</div>
-        </div>
-    </div>
-    <div class="divider"></div>
-    <form th:action="@{${action}}" method="post" th:object="${gif}" enctype="multipart/form-data">
-        <input type="hidden" th:field="*{id}"/>
+<div class="container upload"><select name="carlist" form="carform">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+</select>
+    <div class="container upload">
         <div class="row">
-            <div class="col s12 l8">
-                <div class="file-wrapper">
-                    <input type="file" id="file" name="file"/>
-                    <span class="placeholder" data-placeholder="Choose an image...">Choose an image...</span>
-                    <label for="file" class="button">Browse</label>
+            <div class="col s12">
+                <h2>Upload</h2>
+                <div class="subtitle">Upload and share your GIFs with friends and family on Facebook, Twitter, and
+                    everywhere else.
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 l8">
-                <input type="text" th:field="*{description}" placeholder="Description"/>
+        <div class="divider"></div>
+        <form th:action="@{/addedgif}" method="post" enctype="multipart/form-data">
+            <input type="hidden"/>
+            <div class="row">
+                <div class="col s12 l8">
+                    <div class="file-wrapper">
+                        <input type="file" id="file" name="file"/>
+                        <span class="placeholder" data-placeholder="Choose an image...">Choose an image...</span>
+                        <label for="file" class="button">Browse</label>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col s12 l8">
+            <div class="row">
+                <div class="col s12 l8">
+                    <input name="title" type="text" placeholder="Title"/>
+                </div>
+                <div class="col s12 l8">
+                    <input name="discription" type="text" placeholder="Description"/>
 
+                </div>
+                <div class="col s12 l8">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l8">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <button type="submit" class="button">Upload</button>
+                    <a href="javascript:window.location = document.referrer;" class="button">Cancel</a>
+                </div>
+            </div>
+        </form>
+        <div>
+            <ul>
+                <li th:each="file : ${files}">
+                    <a th:href="${file}" th:text="${file}"/>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="files container">
+        <div class="row">
+            <div th:each="file : ${files}" class="col s12 l4">
+                <img th:src="${file}"/>
             </div>
         </div>
-        <div class="row">g
-            <div class="col s12">
-                <button th:text="${submit}" type="submit" class="button">Upload</button>
-                <a href="javascript:window.location = document.referrer;" class="button">Cancel</a>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
 </body>
 </html>
