@@ -23,7 +23,7 @@
       
             <a th:href="@{'/gif/' + ${gif.name}}">
                
-                <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}" />
+                <img th:src="@{'/gifs/' + ${gif.name}}" />
                 <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
             </a>
         </div>

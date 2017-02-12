@@ -13,8 +13,6 @@ public class Gif {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private byte[] image;
-
     private String name;
 
     private String username;
@@ -25,16 +23,11 @@ public class Gif {
 
     public Gif(){}
 
-    public byte[] getImage() {
-        return image;
-    }
 
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
 
-    public Gif(byte[] image, String name, String username, boolean isFavorite, int categoryId) {
-        this.image = image;
+
+
+    public Gif(String name, String username, boolean isFavorite, int categoryId) {
         this.name = name;
         this.username = username;
         this.categoryId = categoryId;

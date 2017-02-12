@@ -33,7 +33,7 @@ public class GifRepository implements GifDao {
 
     @Override
     public Gif findByName(String name) {
-        List<Gif> all = entityManager.createQuery("from Gif where name ='"+name+"'").getResultList();
+        List<Gif> all = entityManager.createQuery("from Gif where name ='"+name+".gif'").getResultList();
         Gif gif = all.get(0);
         return gif;
     }
